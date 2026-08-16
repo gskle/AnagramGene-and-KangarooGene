@@ -1,4 +1,4 @@
-# Synthetic Negative Learning for Intronic Variant Interpretation
+# Pan-Eukaryotic Synthetic Negative Learning Enhances Prediction of Functional Intronic Variants
 
 This repository contains the analysis code for a synthetic negative learning framework that distinguishes authentic genes from synthetic intron-based decoys. The framework is designed to learn constraints in intronic sequence space and to score the potential functional effects of intronic variants.
 
@@ -33,7 +33,6 @@ clean_code/
 └── 06_clinvar/                 ClinVar annotation, scoring, and evaluation
 ```
 
-See [`clean_code/README.md`](clean_code/README.md) for the detailed script map and ClinVar pipeline order.
 
 ## Data and models
 
@@ -75,22 +74,3 @@ python 06_clinvar/01_find_intron_variants.py <chromosome>
 
 The commands above illustrate the entry points; a complete run requires the corresponding input files and should follow the dependencies between stages. Before running, update the configurable paths near the top of each script, including `DATA_DIR`, `DATA_CSV`, `MODEL_DIR`, and output locations.
 
-## Reproducibility notes
-
-- Standard shuffled datasets use an `intron_least` threshold of 3.
-- DNA sequences are one-hot encoded using A/C/G/T; N and unknown bases are encoded as zeros.
-- Binary predictions use a threshold of 0.5 where applicable.
-- Model probabilities are taken from the final softmax output column.
-- ClinVar analysis requires the relevant genome, annotation, ClinVar, Pangolin, and SpliceAI inputs.
-
-## Citation
-
-If you use this code, please cite the associated manuscript:
-
-> *Discriminating functional genomic variants from neutral background variation using synthetic negative learning.*
-
-Full bibliographic information will be added after publication.
-
-## License
-
-No license has been specified yet. Add a `LICENSE` file before distributing this repository for reuse.
